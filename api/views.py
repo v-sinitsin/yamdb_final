@@ -16,7 +16,7 @@ from . import serializers
 from .filters import TitleFilter
 from .models import Category, Comment, Genre, Review, Title
 from .permissions import (IsAdminOrAccountOwner, IsAdminUserOrReadOnly,
-                          isAdminUserModerator)
+                          IsAdminUserModerator)
 from .tokens import AccountActivationTokenGenerator
 
 User = get_user_model()
@@ -123,7 +123,7 @@ class GenreViewSet(CreateListDestroyViewSet):
 class ReviewsViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = serializers.ReviewSerializer
-    permission_classes = (isAdminUserModerator,)
+    permission_classes = (IsAdminUserModerator,)
 
     def get_queryset(self):
         title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
@@ -137,7 +137,7 @@ class ReviewsViewSet(viewsets.ModelViewSet):
 class CommentsViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = serializers.CommentsSerializer
-    permission_classes = (isAdminUserModerator,)
+    permission_classes = (IsAdminUserModerator,)
 
     def get_queryset(self):
         review = get_object_or_404(Review, pk=self.kwargs.get('review_id'))
