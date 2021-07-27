@@ -15,8 +15,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from . import serializers
 from .filters import TitleFilter
 from .models import Category, Comment, Genre, Review, Title
-from .permissions import (IsAdminOrAccountOwner, IsAdminUserOrReadOnly,
-                          IsAdminUserModerator)
+from .permissions import (IsAdminOrAccountOwner, IsAdminUserModerator,
+                          IsAdminUserOrReadOnly)
 from .tokens import AccountActivationTokenGenerator
 
 User = get_user_model()
