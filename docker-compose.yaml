@@ -9,7 +9,7 @@ services:
       - ./.env
 
   web:
-    image: onckavis/infra_sp2_web:latest
+    image: onckavis/infra_sp2_web:v1.1
     restart: always
     volumes:
       - static_value:/code/static/
